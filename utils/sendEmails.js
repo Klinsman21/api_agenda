@@ -1,9 +1,9 @@
 const mail = require('@sendgrid/mail')
-mail.setApiKey('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')
 
 const SendEmail = async (email, token) => {
     console.log(process.env.SENDGRID_API_KEY)
-    let authenticationURL = 'http://localhost:3000/users/validate/' + token;
+    mail.setApiKey(process.env.SENDGRID_API_KEY)
+    let authenticationURL = 'https://pw2-2023-api-agenda.onrender.com/users/validate/' + token;
     const msg = {
         to: email, // Change to your recipient
         from: 'jose.klinsman@academico.ifpb.edu.br', // Change to your verified sender
